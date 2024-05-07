@@ -1,0 +1,39 @@
+<!-- Modal for Posting a Review -->
+<div class="modal fade" id="AddReview" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #b9d8f5;">
+        <h2 class="modal-title" style="color: #000000;">Post A Review</h2>
+        <button type="button1" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!-- Add a hidden input field to store the booksId -->
+          <input type="hidden" id="booksId" value="">
+          <div class="form-group">
+            <label for="rating">Rating:</label>
+            <div class="rating-stars">
+              <!-- Star images with event listeners -->
+              <img class="star" src="images/stars_bw.png" value="1" onmouseover="hoverStar(this)" onclick="rateIt(this)">
+              <img class="star" src="images/stars_bw.png" value="2" onmouseover="hoverStar(this)" onclick="rateIt(this)">
+              <img class="star" src="images/stars_bw.png" value="3" onmouseover="hoverStar(this)" onclick="rateIt(this)">
+              <img class="star" src="images/stars_bw.png" value="4" onmouseover="hoverStar(this)" onclick="rateIt(this)">
+              <img class="star" src="images/stars_bw.png" value="5" onmouseover="hoverStar(this)" onclick="rateIt(this)">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="review">Review:</label>
+            <textarea class="form-control" id="review" rows="5" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn button2" data-dismiss="modal">Close</button>
+        <!-- Pass the book's ID as a custom attribute -->
+        <button type="button" class="btn button" id="postReviewButton" onclick="addReview(booksId, rating)">Submit Review</button>
+      </div>
+    </div>
+  </div>
+</div>

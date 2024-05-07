@@ -1,0 +1,64 @@
+<!-- Modal for Editing Books -->
+<div class="modal fade" id="editbook" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header" style="background-color: #b9d8f5;">
+          <h2 class="modal-title" style="color: #000000;">Edit Book </h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="edit-quantity">Quantity</label>
+            <div class="counter">
+              <span class="down" onClick='decreaseCount(event, this)'>-</span>
+              <input type="text" class="form-control" id="edit-quantity" value="1" required>
+              <span class="up" onClick='increaseCount(event, this)'>+</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-price">Price:</label>
+            <!-- Use unique id for each input field using the book's id -->
+            <input type="text" class="form-control" id="edit-price" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-location">Location 1:</label>
+            <select class="form-control" id="edit-location" required>
+              <option value="" selected disabled>Select the location</option>
+              <option value="Woods in the books">Woods in the books</option>
+              <option value="Books Kinokuniya Bugis">Books Kinokuniya Bugis</option>
+              <option value="Zall Bookstore">Zall Bookstore</option>
+              <option value="null">null</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="edit-location2">Location 2:</label>
+            <select class="form-control" id="edit-location2" required>
+              <option value="" selected disabled>Select the location</option>
+              <option value="Woods in the books">Woods in the books</option>
+              <option value="Books Kinokuniya Bugis">Books Kinokuniya Bugis</option>
+              <option value="Zall Bookstore">Zall Bookstore</option>
+              <option value="null">null</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="edit-location3">Location 3:</label>
+            <select class="form-control" id="edit-location3" required>
+              <option value="" selected disabled>Select the location</option>
+              <option value="Woods in the books">Woods in the books</option>
+              <option value="Books Kinokuniya Bugis">Books Kinokuniya Bugis</option>
+              <option value="Zall Bookstore">Zall Bookstore</option>
+              <option value="null">null</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button1" class="btn button2" data-dismiss="modal">Close</button>
+            <button type="button" class="btn button" id="editbookButton" onclick="Editbook(booksId)">Save changes</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+ 

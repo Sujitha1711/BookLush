@@ -1,0 +1,193 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Lush</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c40c131336.js" crossorigin="anonymous"></script>
+    <script src="js/common.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/book.js"></script>
+    <script src="js/stores.js"></script>
+    <script src="js/fav.js"></script>
+</head>
+
+<body onload="setNavBar();getBooks(40);" style=background-color:#F0EEEA;>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-md navbar-custom">
+        <a class="navbar-brand" href="#">
+          <img src="images/logo.png" width="70" height="50" class="d-inline-block align-top" alt="">
+        </a>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html"><span class="fa fa-home"></span> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Book.html"><span class=""></span> Book</a>
+            </li>
+          </ul>
+          <div class="navbar-nav ml-auto">
+            <li class="nav-item" id="navUser">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#loginForm">Login/Signup</a>
+            </li>
+          </div>
+        </div>
+      </nav>
+      <div w3-include-html="login-modal.html"></div>
+      <div w3-include-html="logout-modal.html"></div>
+    <br>
+    <div class="container">
+        <div class="searchBox">
+            <input class="searchInput" type="text" name="" placeholder="Search" id="searchInput">
+            <button class="searchButton" onclick="performSearch()">
+                <i class="fa fa-search"> </i>
+            </button>
+        </div>
+    </div>
+    <br>
+    </div>
+    <div class="container1" style="background-color: #F0EEEA;">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="filter-section">
+                    <h4>Filter By</h4>
+                    <h5>Price</h5>
+                    <div>
+                        <input type="radio" id="highestPriceRadio" name="priceFilter" onchange="filterBooksByPrice()">
+                        <label for="highestPriceRadio">Highest to Lowest</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="lowestPriceRadio" name="priceFilter" onchange="filterBooksByPrice()">
+                        <label for="lowestPriceRadio">Lowest to Highest</label>
+                    </div>
+                    <h5>Category</h5>
+                    <div>
+                        <input type="radio" id="AllRadio" name="categoryRadio" value="All"
+                            onchange="getBooksByCategory('All');">
+                        <label for="AllRadio">All</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="ChildrenRadio" name="categoryRadio" value="Children"
+                            onchange="getBooksByCategory('Children'); ">
+                        <label for="ChildrenRadio">Children</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="CoicsRadio" name="categoryRadio" value="Comics"
+                            onchange="getBooksByCategory('Comics'); ">
+                        <label for="ComicsRadio">Comics</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="RomanceRadio" name="categoryRadio" value="Romance"
+                            onchange="getBooksByCategory('Romance');">
+                        <label for="RomanceRadio">Romance</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="ScienceRadio" name="categoryRadio" value="Science"
+                            onchange="getBooksByCategory('Science');">
+                        <label for="ScienceRadio">Science</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="FictionRadio" name="categoryRadio" value="Fiction"
+                            onchange="getBooksByCategory('Fiction');">
+                        <label for="FictionRadio">Fiction</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="PoetryRadio" name="categoryRadio" value="Poetry"
+                            onchange="getBooksByCategory('Poetry'); ">
+                        <label for="PoetryRadio">Poetry</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="OtherRadio" name="categoryRadio" value="Other"
+                            onchange="getBooksByCategory('Other'); ">
+                        <label for="OtherRadio">Other</label>
+                    </div>
+                    <h5>Look for Books</h5>
+                    <div>
+                        <input type="radio" id="newRadio" name="categoryRadio" value="new"
+                            onchange="getBooksByLatest('new'); ">
+                        <label for="newRadio">Best Sellers</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="oldRadio" name="categoryRadio" value="old"
+                            onchange="getBooksByLatest('old'); ">
+                        <label for="oldRadio">Goldies</label>
+                    </div>
+                    <!-- <div class="filter-section">
+                        <div>
+                            <button onclick="clearFilters()">Clear</button>
+                        </div>
+                    </div> -->
+
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <!-- Insert the loader here -->
+                <div id="loader" class="loader"></div>
+
+                <!-- This is where the books will be displayed -->
+                <div class="row" id="booklist">
+                    <!-- Each book card will be wrapped with a div having class="col-md-4 mb-4" -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div w3-include-html="footer.html"></div>
+    <!-- <div w3-include-html="logout-modal.html"></div> -->
+    <div w3-include-html="Contact-modal.html"></div>
+    <!-- Include the w3.js library here if needed -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script>
+        w3.includeHTML();
+        // Add the oninput event handler to the search input
+        document.getElementById("searchInput").oninput = function () {
+            performSearch();
+        };
+
+        // Load books on page load
+        window.onload = function () {
+            setNavBar();
+            getBooks(50);
+        };
+    </script>
+    <!-- <div w3-include-html="login-modal.html"></div> -->
+</body>
+
+</html>
+
+<!-- Search box -->
+<!-- <div class="container">
+        <div class="input-group rounded">
+          <input type="search" id="searchInput" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" />
+          <span class="input-group-text border-0" id="search-addon">
+            <button type="submit" onclick="performSearch()">
+              <i class="fas fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </div> -->

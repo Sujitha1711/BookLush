@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #projects-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        #close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+        }
+
+        .project-images {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .project-image-popup {
+            width: 30%;
+            height: auto;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="projects-container">
+    <div class="project-card" onclick="showPopup('Fabulous Feast', 'This is a restaurant review website. This is one of my projects that showcases the use of HTML, CSS, Bootstrap 5, JavaScript, and MYSQL to create a website. The website allows users to view restaurants, rate them, and leave reviews for others to see. With its user-friendly interface and extensive database of restaurants, Restaurant Review is a valuable resource for foodies everywhere.', 'https://project1link.com')">
+        <img class="project-image" src="images/Screenshot 2023-11-29 021214.png" alt="Project 1">
+        <div class="project-info">
+            <h3>Fabulous Feast</h3>
+        </div>
+    </div>
+
+    <div class="project-card" onclick="showPopup('Book Lush', 'Book Lush is an exciting new project that introduces a book pre-order website, showcasing the skills of a business that has used HTML, CSS, and Javascript, along with AWS services. One of the unique features of this project is that it sends notifications every time a user places an order or logs in, making it an efficient and user-friendly experience.', 'https://project2link.com')">
+        <img class="project-image" src="images/msg-949404285-178278.jpg" alt="Project 2">
+        <div class="project-info">
+            <h3>Book Lush</h3>
+        </div>
+    </div>
+</div>
+
+<div id="popup-content">
+    <span id="close-btn" onclick="hidePopup()">&times;</span>
+    <h2 id="popup-title"></h2>
+    <p id="popup-description"></p>
+    <div class="project-images" id="popup-images"></div>
+    <a id="popup-link" href="#" target="_blank">Visit Project</a>
+</div>
+
+<script>
+    function showPopup(title, description, link, images) {
+        document.getElementById('popup-title').innerText = title;
+        document.getElementById('popup-description').innerText = description;
+        document.getElementById('popup-link').href = link;
+
+        // Clear existing images
+        document.getElementById('popup-images').innerHTML = '';
+
+        // Add new images
+        images.forEach(function(image) {
+            var imgElement = document.createElement('img');
+            imgElement.className = 'project-image-popup';
+            imgElement.src = image;
+            imgElement.alt = title + ' Image';
+            document.getElementById('popup-images').appendChild(imgElement);
+        });
+
+        document.getElementById('popup').style.display = 'flex';
+    }
+    function hidePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

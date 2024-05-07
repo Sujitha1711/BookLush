@@ -1,0 +1,36 @@
+<!-- Modal for Edit a Review -->
+<div class="modal fade" id="editReview" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #EF9B20;">
+        <h2 class="modal-title" style="color: #ffffff;">Edit Your Review</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="edit-rating">Rating:</label>
+            <div class="stars" id="edit-rating">
+              <span class="star" onclick="setEditRating(1)">&#9733;</span>
+              <span class="star" onclick="setEditRating(2)">&#9733;</span>
+              <span class="star" onclick="setEditRating(3)">&#9733;</span>
+              <span class="star" onclick="setEditRating(4)">&#9733;</span>
+              <span class="star" onclick="setEditRating(5)">&#9733;</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edit-review">Review:</label>
+            <textarea class="form-control" id="edit-review" rows="5" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn button2" data-dismiss="modal">Close</button>
+        <!-- Pass the book's ID as a custom attribute -->
+        <button type="button" class="btn button" id="editReviewButton" onclick="editReview(booksId, username)">Edit Review</button>
+      </div>
+    </div>
+  </div>
+</div>
